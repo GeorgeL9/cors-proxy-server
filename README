@@ -1,0 +1,52 @@
+# CORS Proxy Server
+## Description
+This project sets up a proxy server to help Ionic developers temporarily bypass CORS restrictions while the backend team works on a permanent fix. It is a Node.js application built using the Express.js framework and the http-proxy-middleware library to forward requests to a specified API service, mitigating CORS issues that are commonly faced in Ionic development environments.
+
+## Beneficial for Ionic Developers Facing CORS Issues
+In the development process, Ionic developers often face CORS issues which prevent the frontend from communicating effectively with the backend. These issues can stall development and testing processes significantly. This project provides a temporary solution to bypass CORS restrictions by setting up a proxy server that forwards requests to the designated API service.
+
+While this serves as a stopgap solution to facilitate uninterrupted development, it is recommended to use this tool for development purposes only and to work towards implementing a permanent solution on the backend for handling CORS issues correctly.
+
+
+#### **Features**
+- **CORS bypass:** Enables client-side applications to bypass CORS restrictions when accessing the proxied API service.
+- **CLI configuration:** Allows users to specify the target API service and server port via command-line arguments.
+
+#### **Prerequisites**
+- [Node.js](https://nodejs.org/) (v14.0.0 or newer)
+- [npm](https://www.npmjs.com/) (v7.0.0 or newer)
+
+#### **Installation**
+
+Clone the repository and install the dependencies using the following commands:
+
+```sh
+git clone https://github.com/GeorgeL9/cors-proxy-server.git
+cd cors-proxy-server
+npm install
+```
+
+#### **Usage**
+
+To start the server, use the following command, replacing `API_SERVICE_URL` with the URL of the API service you want to proxy to, and optionally replacing `PORT` with the port you want the server to listen on (default is 3000):
+
+```sh
+node server.js API_SERVICE_URL [PORT]
+```
+
+**Example:**
+
+```sh
+node server.js https://example.com/api/v1 4000
+```
+
+In this example, the server will start on port 4000 and proxy requests to `https://example.com/api/v1`.
+
+#### **Endpoints**
+
+Once the server is running, it will proxy requests made to the `/api` endpoint to the specified API service. For instance, a GET request to `http://localhost:3000/api/some/endpoint` will be proxied to `API_SERVICE_URL/some/endpoint`.
+
+
+#### **License**
+
+This project is licensed under the MIT License.
